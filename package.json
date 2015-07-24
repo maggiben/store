@@ -1,0 +1,32 @@
+{
+  "name": "store",
+  "version": "0.0.1",
+  "license": "MIT",
+  "keywords": [
+    "chat",
+    "server"
+  ],
+  "readme": "README.md",
+  "description": "Store demo App",
+  "main": "app.js",
+  "scripts": {
+    "start": "node app.js",
+    "test": "gulp test"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/maggiben/store.git"
+  },
+  "author": "Benjamin Maggi",
+  "bugs": {
+    "url": "https://github.com/maggiben/store/issues"
+  },
+  "engines": {
+    "node": "0.10 || 0.11 || 0.12"
+  },
+  "homepage": "http://store-laboratory.rhcloud.com",
+  "dependencies": {
+    "express": "^4.13.1"
+  },
+  "devDependencies": {}
+}
