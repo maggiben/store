@@ -30,17 +30,60 @@ html(ng-app="vineyard", data-framework="angularjs", lang="en")
             width: 100%;
         }
         .item {
-            background: rgba(255,255,255,0.1);
-            padding: 1.5em;
+            background: rgba(169, 23, 45, 0.86);
+            padding: 0.5em;
             float: left;
             margin: 0 0 1.5em;
             min-width: 280px;
             box-shadow: 0px 1px 1px 0px rgba(0, 0, 0, 0.25);
             border-radius: 3px;
         }
+        .item .title  {
+            display: block;
+            width: 100%;
+            text-align: center;
+            color: #fff;
+            font-size: 1.5em;
+            text-shadow: 1px 1px #000;
+        }
         .item img {
+            display: block;
+            margin-left: auto;
+            margin-right: auto;
             max-width: 100%;
         }
+        .nav-bar {
+            height: 80px;
+            width: 100%;
+            background: rgba(0, 0, 0, 0.65);
+            box-shadow: 0px 1px 1px 0px rgba(0, 0, 0, 0.25);
+            color: #fff;
+        }
+        .comments .comment {
+            margin: 10px 0px;
+            border: 1px solid rgba(255, 255, 255, 0.31);
+            background-color: rgba(255, 255, 255, 0.05);
+        }
+        .comment .avatar {
+            width: 32px;
+            height: 32px;
+            background-color: #fff;
+            display: inline-block;
+            vertical-align: middle;
+            margin: 2px;
+        }
+        .comment .text {
+            color: #fff;
+            display: inline-block;
+        }
+        .input textarea {
+            width: 100%;
+            border: 1px solid #fff;
+            color: #fff;
+            padding: 4px;
+            background-color: rgba(255, 255, 255, 0.25);
+        }
+
         @media only screen and (min-width: 700px) {
             .item {
                 min-width: 120px;
@@ -68,7 +111,10 @@ html(ng-app="vineyard", data-framework="angularjs", lang="en")
 
 
   body(ng-controller="VineController as vine", ng-cloak, vine-scroller="vine.scroll()")
-    h1 AngularJs + Babel + JSPM + GULP
+    nav.nav-bar
+        ul
+            li
+                h1 AngularJs + Babel + JSPM + GULP
     //div(ng-controller="VineController as vine")
         h2 List of Github users
             ul
@@ -76,8 +122,14 @@ html(ng-app="vineyard", data-framework="angularjs", lang="en")
     div.wrapper
         div.masonry(masonry="{ 'transitionDuration' : '0.4s' , 'gutter' : '20'}")
             div.item(masonry-tile, ng-repeat="user in vine.users")
-                a {{user.login}}
-                img(ng-src="{{user.avatar_url}}")
+                a.title(href="#") {{user.login}}
+                img.image(ng-src="{{user.avatar_url}}")
+                div.comments
+                    div.comment
+                        img.avatar(ng-src="{{user.avatar_url}}")
+                        div.text "hola como va"
+                div.input
+                    textarea
     script(src="jspm_packages/system.js")
     script(src="config.js")
     script.
