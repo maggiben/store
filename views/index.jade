@@ -18,20 +18,54 @@ html(ng-app="vineyard", data-framework="angularjs", lang="en")
     link(rel="stylesheet/css", type="text/css", href="//fonts.googleapis.com/css?family=Open+Sans")
     //link(rel="stylesheet", type="text/css", href="css/masonry.css")
 
-    script(src="//cdnjs.cloudflare.com/ajax/libs/masonry/3.3.1/masonry.pkgd.min.js")
     style.
+        body {
+
+            background: #191919 url(http://pattern8.com/images/pattern-thumbs/pattern8-pattern-76a.png) repeat left top;
+        }
+        .wrapper {
+            width: 100%;
+        }
+        .masonry {
+            width: 100%;
+        }
         .item {
-            background: #fff;
+            background: rgba(255,255,255,0.1);
             padding: 1.5em;
             float: left;
             margin: 0 0 1.5em;
-            width: 160px;
+            min-width: 280px;
             box-shadow: 0px 1px 1px 0px rgba(0, 0, 0, 0.25);
             border-radius: 3px;
         }
         .item img {
             max-width: 100%;
         }
+        @media only screen and (min-width: 700px) {
+            .item {
+                min-width: 120px;
+            }
+        }
+
+        @media only screen and (min-width: 900px) {
+            .item {
+                min-width: 180px;
+            }
+        }
+
+        @media only screen and (min-width: 1100px) {
+            .item {
+                min-width: 240px;
+            }
+        }
+
+        @media only screen and (min-width: 1280px) {
+            .item {
+               width: 30%;
+               margin: 1.65%;
+            }
+        }
+
 
   body(ng-controller="VineController as vine", ng-cloak, vine-scroller="vine.scroll()")
     h1 AngularJs + Babel + JSPM + GULP
@@ -40,8 +74,8 @@ html(ng-app="vineyard", data-framework="angularjs", lang="en")
             ul
                 li(ng-repeat="user in vine.users") {{user.id}}. {{user.login}}
     div.wrapper
-        div.masonry(vine-masonry)
-            div.item(ng-repeat="user in vine.users")
+        div.masonry(masonry="{ 'transitionDuration' : '0.4s' , 'gutter' : '20'}")
+            div.item(masonry-tile, ng-repeat="user in vine.users")
                 a {{user.login}}
                 img(ng-src="{{user.avatar_url}}")
     script(src="jspm_packages/system.js")

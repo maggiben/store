@@ -1,7 +1,7 @@
 'use strict';
 
 class VineDirective {
-    constructor($q) {
+    constructor(VineService, $q) {
         this.restrict = 'AE';
         this.$q = $q;
     }
@@ -15,12 +15,12 @@ class VineDirective {
         });
     }
 
-    static directiveFactory($q){
-        VineDirective.instance = new VineDirective($q);
+    static directiveFactory(VineService, $q){
+        VineDirective.instance = new VineDirective(VineService, $q);
         return VineDirective.instance;
     }
 }
 
-VineDirective.directiveFactory.$inject = ['$q'];
+VineDirective.directiveFactory.$inject = ['VineService', '$q'];
 
 export { VineDirective }
