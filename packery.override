@@ -1,0 +1,26 @@
+{
+  "main": "dist/js/packery",
+  "shim": {
+    "dist/js/packery": {
+      "deps": [
+        "classie",
+        "get-size",
+        "get-style-property",
+        "outlayer",
+      ],
+      "exports": "$"
+    }
+  },
+  "dependencies": {
+    "classie": "github:desandro/classie",
+    "get-size": "github:desandro/get-size",
+    "get-style-property": "github:desandro/get-style-property",
+    "outlayer": "github:metafizzy/outlayer"
+  }
+}
+
+
+jspm install github:metafizzy/packery -o "{ 'main': 'dist/js/packery', shim: { 'dist/js/packery': { deps: ['classie', 'get-size/get-size', 'get-style-property', 'outlayer'] } }, dependencies: { 'classie': 'github:desandro/classie', 'get-size/get-size':'github:desandro/get-size', 'get-style-property':'github:desandro/get-style-property', 'outlayer':'github:metafizzy/outlayer' } }"
+
+
+jspm install github:metafizzy/packery -o "{ format: 'global', files: null }"

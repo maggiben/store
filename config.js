@@ -21,16 +21,16 @@ var environments = {
         },
         baseUrl: 'rhcloud.com',
         environment: process.env.NODE_ENV,
-        port: process.env.OPENSHIFT_NODEJS_PORT || 8080,
+        port: process.env.OPENSHIFT_NODEJS_PORT || 9090,
         ipaddr: process.env.OPENSHIFT_NODEJS_IP || '127.0.0.1',
         allowCrossDomain: false,
         mongo: {
-            hostname: 'paulo.mongohq.com',
-            port: 10040,
-            username: process.env.MONGO_USER || 'admin',
-            password: process.env.MONGO_PASS || 'admin',
+            hostname: 'dogen.mongohq.com',
+            port: 10054,
+            username: process.env.MONGO_USER || 'backend',
+            password: process.env.MONGO_PASS || 'password',
             name: '',
-            db: 'groopy'
+            db: 'vineyard'
         },
         redis: {
             hostname: 'pub-redis-18198.us-east-1-2.3.ec2.garantiadata.com',
@@ -59,12 +59,12 @@ var environments = {
         ipaddr: process.env.OPENSHIFT_NODEJS_IP || '127.0.0.1',
         allowCrossDomain: false,
         mongo: {
-            hostname: 'paulo.mongohq.com',
-            port: 10040,
-            username: process.env.MONGO_USER || 'admin',
-            password: process.env.MONGO_PASS || 'admin',
+            hostname: 'dogen.mongohq.com',
+            port: 10054,
+            username: process.env.MONGO_USER || 'backend',
+            password: process.env.MONGO_PASS || 'password',
             name: '',
-            db: 'groopy'
+            db: 'vineyard'
         },
         redis: {
             hostname: 'pub-redis-18198.us-east-1-2.3.ec2.garantiadata.com',

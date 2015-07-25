@@ -1,0 +1,51 @@
+doctype html
+html(ng-app="vineyard", data-framework="angularjs", lang="en")
+  head
+    title Vineyard
+    meta(charset="utf-8")
+    meta(http-equiv="X-UA-Compatible", content="IE=edge")
+    meta(name="robots", content="noindex, nofollow")
+    meta(name="viewport" content="width=device-width")
+    meta(name='description', content='Realtime Chat Application')
+    meta(name='author', content='Benjamin')
+
+    link(rel='icon', type='image/png', href='images/logo.png', sizes="64x64")
+    // Bootstrap
+    link(rel="stylesheet", href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css")
+    // FontAwesome
+    link(rel="stylesheet", href="//maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css")
+    // Font
+    link(rel="stylesheet/css", type="text/css", href="//fonts.googleapis.com/css?family=Open+Sans")
+    //link(rel="stylesheet", type="text/css", href="css/masonry.css")
+
+    script(src="//cdnjs.cloudflare.com/ajax/libs/masonry/3.3.1/masonry.pkgd.min.js")
+    style.
+        .item {
+            background: #fff;
+            padding: 1.5em;
+            float: left;
+            margin: 0 0 1.5em;
+            width: 160px;
+            box-shadow: 0px 1px 1px 0px rgba(0, 0, 0, 0.25);
+            border-radius: 3px;
+        }
+        .item img {
+            max-width: 100%;
+        }
+
+  body(ng-controller="VineController as vine", ng-cloak, vine-scroller="vine.scroll()")
+    h1 AngularJs + Babel + JSPM + GULP
+    //div(ng-controller="VineController as vine")
+        h2 List of Github users
+            ul
+                li(ng-repeat="user in vine.users") {{user.id}}. {{user.login}}
+    div.wrapper
+        div.masonry(vine-masonry)
+            div.item(ng-repeat="user in vine.users")
+                a {{user.login}}
+                img(ng-src="{{user.avatar_url}}")
+    script(src="jspm_packages/system.js")
+    script(src="config.js")
+    script.
+        System.import("./app/app");
+
